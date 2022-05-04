@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+/* 100% é 16px quanto  que sera 10px */
+
+:root{
+  font-size: 62.5%;
+  --background-button: #5F3DC4;
+  --color-text:#5F3DC4;
+  --brand-beige: #FFFAF1;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+}
+
+header{
+   width: 37.5rem;
+   margin-right: auto;
+   margin-left: auto;
+   margin-top: 4.1rem;
+}
+
+h4{
+  font-size: 1.4rem;
+  color: var(--color-text);
+  margin-bottom: 1.6rem;
+}
+
+h1{
+  font-size: 3.4rem;
+  color: black;
+  line-height: 130%;
+  margin-bottom: 2.4rem;
+}
+
+p{
+  font-size: 1.8rem;
+  line-height: 150%;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 3.2rem; 
+}
+
+button{
+  background-color: var(--background-button);
+  border-radius: 4rem;
+  border: none;
+  height:  6.2rem;
+  width: 26.3rem;
+  margin-bottom: 6rem;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+header div.stats{
+  width: 32.7rem;
+  height: 47rem;
+  margin-inline: auto;
+  background-color: var(--brand-beige);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+}
+ 
+
