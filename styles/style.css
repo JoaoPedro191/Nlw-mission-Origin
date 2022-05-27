@@ -1,57 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
 
 /* 100% é 16px quanto  que sera 10px */
 
-:root{
-  font-size: 62.5%;
-  --background-button: #5F3DC4;
-  --color-text:#5F3DC4;
-  --brand-beige: #FFFAF1;
+:root {
+  --background-button: #5f3dc4;
+  --color-text: #5f3dc4;
+  --colors-h1: #212529;
+  --paragraph: #495057;
+  --background: #e5dbff;
+  --bg-light: hsl(180, 14%, 97%);
+  --nav-height: 7.2rem;
+  font-size: 62.5%; /*1rem = 10px */
 }
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 body {
   font-size: 1.6rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   text-align: center;
+  overflow: overlay;
+  background-color: var(--bg-light);
+}
+.wrapper {
+  width: min(50rem, 100%);
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+}
+ul {
+  list-style-type: none;
+}
+img {
+  max-width: 100%;
+}
+section {
+  padding-block: 10rem;
 }
 
-header{
-   width: 37.5rem;
-   margin-right: auto;
-   margin-left: auto;
-   margin-top: 4.1rem;
-}
-
-h4{
+section header h4 {
   font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 150%;
   color: var(--color-text);
   margin-bottom: 1.6rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
 }
-
-h1{
+section header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+  color: var(--headline);
+}
+section header h1 {
   font-size: 3.4rem;
-  color: black;
+  color: var(--colors-h1);
   line-height: 130%;
   margin-bottom: 2.4rem;
 }
 
-p{
-  font-size: 1.8rem;
-  line-height: 150%;
+section .content p {
   font-weight: 400;
-  color: black;
-  margin-bottom: 3.2rem; 
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: var(--paragraph);
 }
 
-button{
+.button {
   background-color: var(--background-button);
   border-radius: 4rem;
   border: none;
-  height:  6.2rem;
-  width: 26.3rem;
+  padding: 1.6rem 3.2rem;
   margin-bottom: 6rem;
   color: white;
   text-transform: uppercase;
@@ -60,21 +92,638 @@ button{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: auto;
-  margin-left: auto;
   cursor: pointer;
+  width: fit-content;
+  text-decoration: none;
+  gap: 1.6rem;
 }
 
-header div.stats{
-  width: 32.7rem;
-  height: 47rem;
+.button:hover {
+  background-color: #5007c6;
+  filter: brightness(1.3);
+}
+
+/* ===========  START SECTION HOME ===================== */
+section#home {
+  padding-block: 0;
+  padding-top: calc(4.1rem + (var(--nav-height)));
+}
+
+section#home::before {
+  content: "";
+  width: 100%;
+  height: calc(114rem + var(--nav-height));
+  background-color: var(--background);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /*eixo Z*/
+}
+
+section#home .content p {
+  font-size: 1.8rem;
+  line-height: 150%;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 3.2rem;
+}
+
+section#home .content .button {
+  margin: auto;
+}
+
+section#home .content img {
+  width: 26.4rem;
+  object-position: 0 2rem;
+  display: block;
   margin-inline: auto;
-  background-color: var(--brand-beige);
+}
+
+section#home div.stats {
+  width: 100%;
+  padding: 4rem 0;
+  margin-inline: auto;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
+  border: 1px solid var(--brand-light);
+  gap: 6rem;
+  border-radius: 0.6rem;
 }
- 
 
+section#home div.stats div.stat h3 {
+  font-size: 4.8rem;
+  color: var(--headline);
+  line-height: 130%;
+  margin: 0.4rem;
+}
+
+section#home div.stats div.stat p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.6rem;
+}
+
+/* ============ END SECTION HOME  ================== */
+
+/*  ================== START NAV ========================== */
+
+nav {
+  display: flex;
+  height: var(--nav-height);
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background-color: var(--color-text);
+}
+
+nav.scroll div.wrapper .logo path {
+  fill: white;
+}
+
+nav.scroll button path {
+  stroke: white;
+}
+
+nav button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+nav .menu,
+nav .close-menu {
+  position: fixed;
+}
+
+/* =========================== END NAV ======================= */
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+body.menu-expanded > :not(nav) {
+  visibility: hidden;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu {
+  transform: translateY(100%);
+}
+
+body.menu-expanded .menu {
+  top: 0;
+  left: 0;
+  background-color: var(--color-text);
+  height: 100vh;
+  width: 100vw;
+  padding-top: var(--nav-height);
+  transition: transform 300ms;
+  transform: translateY(0);
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4.8rem;
+  align-items: center;
+  margin-top: 6rem;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu .button {
+  background-color: #ffffff;
+  border-radius: 4rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text);
+  display: inline-block;
+  padding: 1.6rem 3.2rem;
+  margin: 4.8rem 0 8rem 0;
+  transition: ease-in-out 0.2s;
+}
+.menu .button:hover {
+  background-color: var(--color-text);
+  color: white;
+  filter: brightness(1.3);
+}
+
+body ul.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+  cursor: pointer;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button.close-menu {
+  position: relative;
+  z-index: 100;
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+}
+
+body.menu-expanded button.close-menu path {
+  stroke: white;
+}
+
+/* ============== START SERVICES ====================== */
+
+section#services h2 {
+  margin-bottom: 6rem;
+}
+
+section#services header h4 {
+  font-size: 1.4rem;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+section#services .cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+section#services .cards .card {
+  padding: 2.4rem;
+  text-align: left;
+  background-color: white;
+  border: 1px solid var(--brand-light);
+  border-radius: 0.6rem;
+}
+
+section#services .cards .card h3 {
+  margin-block: 1.6rem;
+}
+
+/* ============== END SERVICES =========================== */
+
+/* ======= =========== START ABOUT =========================  */
+
+section#about {
+  text-align: left;
+  background-color: var(--background);
+}
+
+section#about header h2 {
+  margin-bottom: 2.4rem;
+}
+
+section#about .content p {
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
+}
+
+/* =================== END ABOUT ============================= */
+
+/* =================== START CONTACT ============================= */
+section#contact {
+  text-align: left;
+}
+
+section#contact header {
+  margin-bottom: 3.2rem;
+}
+
+section#contact .content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+section#contact .content ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* =================== END CONTACT ============================= */
+
+/* =================== START FOOTER ============================= */
+
+footer.footer {
+  background-color: var(--color-text);
+  padding-block: 6rem;
+  text-align: left;
+  color: white;
+}
+footer.footer .logo {
+  display: inline-block;
+  margin-bottom: 2.4rem;
+}
+
+footer.footer .logo svg {
+  width: 23.6rem;
+  height: 3.1rem;
+}
+
+footer.footer .logo path {
+  fill: white;
+}
+
+footer.footer p {
+  color: lightgray;
+  line-height: 2;
+  margin-bottom: 3.2rem;
+}
+
+footer.footer .social-links {
+  justify-content: flex-start;
+}
+
+/* =================== END FOOTER ============================= */
+
+/* ================== START BACKTOTOPBUTTON ========================== */
+
+#backToTopButton {
+  position: fixed;
+  bottom: 0;
+  right: 2.3rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: 200ms;
+}
+
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+/* ================== END BACKTOTOPBUTTON ========================== */
+
+/* START MEDIA QUERIES */
+
+/* GERAL  */
+
+/* RESET GERAL */
+@media (min-width: 1024px) {
+  body {
+    overflow: auto;
+  }
+
+  .wrapper {
+    width: min(112rem, 100%);
+  }
+
+  div.col-a {
+    grid-area: A;
+  }
+
+  div.col-B {
+    grid-area: B;
+  }
+
+  section {
+    padding-block: 16rem;
+  }
+
+  section header h2 {
+    font-size: 4rem;
+    line-height: 5.2rem;
+  }
+
+  /* ===========  START NAVIGATION ===================== */
+
+  nav#navigation .wrapper * {
+    margin: 0;
+    padding: 0;
+    visibility: initial;
+    display: initial;
+    opacity: initial;
+    flex-direction: initial;
+    position: initial;
+    transform: initial;
+    color: initial;
+    background: initial;
+    font-weight: initial;
+    font-size: initial;
+  }
+  nav#navigation .close-menu {
+    display: none;
+  }
+
+  nav#navigation .open-menu {
+    display: none;
+  }
+
+  nav#navigation .social-links {
+    display: none;
+  }
+
+  nav#navigation .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  nav#navigation .menu ul:nth-child(1) {
+    display: flex;
+    grid-area: 3.2rem;
+  }
+
+  nav#navigation .menu ul li a.active,
+  nav#navigation .menu ul li a {
+    color: var(--color-text);
+    opacity: 0.7;
+  }
+
+  nav#navigation .menu ul li a.active,
+  nav#navigation .menu ul li a:hover {
+    opacity: 1;
+    transition: ease-out 200ms;
+  }
+
+  nav#navigation .menu a.button {
+    border: 1px solid var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4rem;
+    padding-block: 1rem;
+    padding-inline: 2.4rem;
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  nav#navigation .menu a.button:hover {
+    background-color: var(--color-text);
+    filter: brightness(1.3);
+    color: white;
+    border: none;
+  }
+
+  nav#navigation.scroll .menu ul li a {
+    color: white;
+    opacity: 0.6;
+  }
+
+  nav#navigation .menu ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    display: block;
+  }
+
+  nav#navigation .menu ul li a::after {
+    background-color: var(--color-text);
+    position: relative;
+    bottom: -2rem;
+    left: -0.5rem;
+    transition: width 0.2s;
+  }
+
+  nav#navigation.scroll .menu ul li a::after {
+    background-color: white;
+  }
+
+  nav#navigation .menu ul li a.active,
+  nav#navigation .menu li a:hover {
+    transition: opacity 0.4s;
+  }
+
+  nav#navigation .menu ul li a.active,
+  nav#navigation.scroll .menu ul li a:hover {
+    opacity: 1;
+    font-weight: 700;
+  }
+
+  nav#navigation .menu ul li a.active::after,
+  nav#navigation .menu li a:hover::after {
+    padding: 0 1.3rem;
+    width: 100%;
+  }
+
+  nav#navigation.scroll .menu a.button {
+    border-color: white;
+    color: white;
+  }
+
+  nav#navigation.scroll .menu a.button.active,
+  nav#navigation.scroll .menu a.button:hover {
+    background-color: var(--color-text);
+    filter: brightness(1.3);
+    border: none;
+  }
+
+  /* ===========  END NAVIGATION ===================== */
+
+  /* ===========  START  HOME ===================== */
+  section#home::before {
+    height: calc(96% - var(--nav-height));
+  }
+
+  section#home {
+    padding-top: var(--nav-height);
+  }
+
+  section#home div.wrapper {
+    display: grid;
+    grid-template-columns: 60.5rem 1fr;
+    grid-template-areas: "A B" "C C";
+  }
+
+  section#home div.col-A {
+    text-align: left;
+    align-self: center;
+  }
+
+  section#home h1 {
+    font-size: 5.2rem;
+  }
+
+  section#home p {
+    font-size: 1.8rem;
+  }
+  section#home div.col-B {
+    object-position: 2.5rem;
+  }
+
+  section#home div.stats {
+    grid-area: C;
+    flex-direction: row;
+    padding-block: 6rem;
+    gap: 0;
+  }
+
+  /* pega o stat anterior e aplica uma bordar */
+  section#home .stats .stat + .stat {
+    border-left: 1px solid var(--color-text);
+  }
+
+  section#home .stats .stat {
+    flex: 1;
+  }
+
+  section#home div.content .button {
+    margin: 0;
+  }
+  section#home .col-B img {
+    width: 42rem;
+  }
+  /* ===========  END SECTION HOME ===================== */
+
+  /* ===========  START SERVICES ===================== */
+
+  section#services h2 {
+    width: 47rem;
+    margin-inline: auto;
+  }
+
+  section#services .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4rem;
+  }
+
+  section#services .card {
+    width: 30%;
+    flex-grow: 1;
+  }
+  /* END SERVICES */
+
+  /* START  SECTION ABOUT */
+
+  section#about .wrapper {
+    display: grid;
+    grid-template-columns: 48rem 1fr;
+    grid-template-areas: "B A";
+    gap: 6.7rem;
+  }
+
+  section#about .col-a {
+    align-self: center;
+  }
+
+  section#about div.content p {
+    margin-bottom: 0;
+  }
+  /* END SECTION ABOUT */
+
+  /* START SECTION CONTACT */
+  section#contact .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 57.5rem;
+    grid-template-areas: "A B";
+  }
+
+  section#contact div.col-a header h2 {
+    width: 40.4rem;
+  }
+  /* END SCTION CONTACT */
+
+  /* START SECTION FOOTER */
+
+  footer.footer .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "A B";
+  }
+
+  footer.footer {
+    padding-block: 8rem;
+  }
+
+  footer.footer div.col-a p {
+    margin-bottom: 0;
+  }
+
+  footer.footer div.col-a {
+    align-self: center;
+  }
+
+  footer.footer div.col-b {
+    align-self: center;
+    justify-self: flex-end;
+  }
+  /* END  SECTION FOOTER */
+}
+/* END MEDIA QUERIES */
