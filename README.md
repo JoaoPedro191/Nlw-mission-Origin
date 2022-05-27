@@ -33,3 +33,23 @@ DoctorCare é uma página institucional no formato One Page, responsiva, para us
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/community/file/1102912263666619803). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
+
+---
+
+## 📁 Como baixar o projeto
+
+```bash
+
+#clonar o repositório
+
+$ git clone https://github.com/JoaoPedro191/Nlw-mission-Origin
+
+#entrar no repositorio
+
+$ cd  Nlw-mission-Origin
+
+#entrar no projeto
+
+$ code .
+
+```
